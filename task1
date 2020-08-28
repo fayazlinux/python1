@@ -1,0 +1,139 @@
+import os
+import time
+import subprocess
+#import commands
+
+print()
+print("\t\t\t\t  Welcome to the Service Menu For Local Syatem  \t\t\t")
+print("\t\t\t\t  --------------------------------------------")
+
+
+
+
+
+#print('Press Enter your Choise ')
+print('\tPress 1 Date:\t ')
+print('\tPress 2 Cal:\t ')
+print('\tPress 3 OS-Detail:\t')
+print('\tPress 4 IP ADDRESS:\t')
+print('\tPress 5 Hostname:\t')
+print('\tPress 6 Yum Repository :\t')
+
+print()
+print("\t\t\t\t  Advance Level Configuration IN Local Syatem  \t\t\t")
+print("\t\t\t\t  --------------------------------------------")
+
+print('\tPress 7  Configure Docker Repo :\t')
+print('\tPress 8  Cofigure Grafana Installation:\t')
+print('\tPress 9  Download  Prometheous  Software:\t')
+print('\tPress 10 Installation of Docker:\t')
+print('\tPress 11 Quit From Script:\t')
+
+while(True):
+
+
+ print()
+ print("Enter your choise: " , end='')
+ output=int(input())
+ print(output)
+
+ if output == 1 :
+    print('You requested for DATE  Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("date")
+
+
+ elif output == 2 :
+
+    print('You requested for CAL  Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("cal")
+
+ elif output == 3 :
+
+    print('You requested for OS-Detail  Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("uname -a")
+
+ elif output == 4 :
+
+    print('You requested for IP ADDRESS Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("ifconfig")
+
+ elif output == 5 :
+    print('You requested for Hostname  Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("hostname")
+
+
+ elif output == 6 :
+    print('You requested for Yum Repolist   Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("yum repolist")
+
+
+ elif output == 7 :
+    print('You requested for Docker Repo Create    Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine")
+    os.system("yum install -y yum-utils")
+
+    print('You requested for Docker Repo Create    Please wait 5 Second !!!!')
+    time.sleep(5)
+    file = open("/etc/yum.repos.d/docker.repo", "w")
+    file.write("[docker]\nbaseurl=https://download.docker.com/linux/centos/7/x86_64/stable/\ngpgcheck=0 \n "
+     )
+    file.close()
+    os.system("systemctl  start docker")
+
+
+
+
+
+ elif output == 8 :
+    print('You requested for Graphana Repo  Create    Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system(" wget https://dl.grafana.com/oss/release/grafana-7.1.5-1.x86_64.rpm ")
+    os.system("yum install grafana-7.1.5-1.x86_64.rpm")
+
+
+
+ elif output == 9 :
+    print('You requested for Download Promethous     Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system(" cd /tmp ; wget -4  https://github.com/prometheus/prometheus/releases/download/v2.20.1/prometheus-2.20.1.linux-amd64.tar.gz  ")
+
+
+ elif output == 10 :
+    print('You requested for Install Docker in Local System      Please wait 5 Second !!!!')
+    time.sleep(5)
+    os.system("yum install docker-ce --nobest  -y ")
+    print(" Docker have been installed ")
+    os.system("rpm -aq  | grep docker-ce")
+
+
+ elif output == 11 :
+    print("You requestd for Run a Container")
+    print("Please Enter Container Name " )
+
+ elif output == 12 :
+    print('You Requested for Quit from Script!!! Please wait 5 Second !!')
+    time.sleep(5)
+    os.system('quit()')
+    print('Thanks for Visit')
+    break
+
+ else:
+    print('Pleae Choose Write option  pelase')
+
+
+#os.system(output)
+ 
